@@ -3,7 +3,8 @@
 git.bin "$@"
 EXITCODE=$?
 
-[ "$1" = fetch ] && [ -d .git-crypt ] || exit $EXITCODE
+if [[ "$1" =~ ^(fetch|checkout)$ ]] && [ -d .git-crypt ]; then
+GNUPGHOME=/app/config/gpg/keys git-crypt unlock
+fi
 
-GNUPGHOME=/app/config/gpg/keys git-crypt unlock > /dev/stderr
 exit $EXITCODE
