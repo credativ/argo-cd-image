@@ -4,7 +4,7 @@ git.bin "$@"
 EXITCODE=$?
 
 # Recursion filter, if git-crypt is triggering git
-if [ "${GIT_CRYPT_BYPASS:-0}" = "1" ];
+if [ "${GIT_CRYPT_BYPASS:-0}" = "1" ]; then
   exit $EXITCODE
 fi
 
