@@ -17,7 +17,7 @@ jobs:
         run: |
           FROM_LINE=$(grep -i '^FROM ' Containerfile | head -n1)
           BASE_IMAGE=$(echo "$FROM_LINE" | awk '{print $2}')
-          TAG=${BASE_IMAGE##*:}
+          TAG=$(echo "$BASE_IMAGE" | sed 's/.*:\(v[^@]*\).*/\1/')
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
       - name: Login to Docker Hub
