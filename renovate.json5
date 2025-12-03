@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // We must ignore tests even if there are no tests yet
+  // otherwise renovate won't automerge PRs since it expects
+  // PRs to have some sort of tests before automerging them.
+  "ignoreTests": "true",
+  "automerge": true
+}
