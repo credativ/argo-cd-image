@@ -19,7 +19,7 @@ Subkey-Usage: encrypt
 %commit
 EOF
 
-export GPG_KEY_ID=$(gpg --armor --export 'argocd@example.com' | gpg --list-keys  --keyid-format LONG | grep '^pub' | sed -r 's/^pub[^/]+\/([A-z0-9]+)\ .*$/\1/')
+export GPG_KEY_ID=$(gpg --armor --export 'argocd@example.com' | gpg --list-keys  --keyid-format LONG --with-colons | grep '^pub'| cut -d: -f 5)
 echo "GPG Key ID: ${GPG_KEY_ID}"
 gpg --armor --export 'argocd@example.com'
 gpg --armor --export-secret-keys 'argocd@example.com'
@@ -32,3 +32,4 @@ if [[ $answer == "y" ]]; then
 fi
 
 unset GNUPGHOME
+unset GPG_KEY_ID
