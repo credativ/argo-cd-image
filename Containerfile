@@ -1,4 +1,4 @@
-FROM quay.io/argoproj/argocd:v3.2.4@sha256:612dddd014026592ff7e45dd43fad010f65556254d054444d5371836f778bbeb
+FROM quay.io/argoproj/argocd:v3.2.5@sha256:090c287bdc16b4649d3fe30e2fa73633debe115cf40d182d4a0a9f125695b64a
 
 # Switch to root for the ability to perform install
 USER root
